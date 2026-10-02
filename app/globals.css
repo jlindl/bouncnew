@@ -252,6 +252,11 @@ html.preloaded .preloader {
     animation: bar-bounce 0.7s var(--ease-expo) both;
     animation-delay: calc(var(--i) * 55ms);
   }
+  .processing [data-bar] {
+    transform-box: fill-box;
+    animation: bar-bounce 0.9s var(--ease-expo) infinite;
+    animation-delay: calc(var(--i) * 90ms);
+  }
   @keyframes bar-bounce {
     0% { transform: translateY(0); }
     35% { transform: translateY(-16%); }

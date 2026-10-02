@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Cursor } from "@/components/layout/Cursor";
 import { StickyBook } from "@/components/layout/StickyBook";
 import { FilmModal } from "@/components/layout/FilmModal";
+import { CartDrawer } from "@/components/shop/CartDrawer";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -97,6 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <StickyBook />
           <FilmModal />
+          <CartDrawer />
         </PageTransition>
         <Preloader />
         <Cursor />

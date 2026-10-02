@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "@/lib/gsap";
 import { lenisStore } from "@/lib/stores";
 import { bookingUrl } from "@/lib/site";
@@ -10,6 +11,9 @@ import { Mark } from "@/components/ui/Logo";
 /** Floating "Book a court" pill: appears after the hero, steps aside when the footer CTA is on screen. */
 export function StickyBook() {
   const ref = useRef<HTMLAnchorElement>(null);
+  const pathname = usePathname();
+  // The shop has its own add-to-bag CTAs; keep the court CTA out of the way there
+  const hidden = pathname.startsWith("/shop") || pathname.startsWith("/checkout");
 
   useEffect(() => {
     const el = ref.current;
@@ -64,8 +68,9 @@ export function StickyBook() {
       href={bookingUrl("sticky")}
       target="_blank"
       rel="noopener"
-      className="group fixed bottom-4 right-4 z-[70] flex items-center gap-3 rounded-full bg-orange py-2 pl-2 pr-5 text-bone shadow-[0_20px_60px_-10px_rgb(190_64_23/0.6)] transition-colors duration-500 hover:bg-bone hover:text-ink sm:bottom-6 sm:right-6"
+      className="group fixed bottom-4 right-4 z-[70] flex data-[hidden=true]:!hidden items-center gap-3 rounded-full bg-orange py-2 pl-2 pr-5 text-bone shadow-[0_20px_60px_-10px_rgb(190_64_23/0.6)] transition-colors duration-500 hover:bg-bone hover:text-ink sm:bottom-6 sm:right-6"
       style={{ visibility: "hidden" }}
+      data-hidden={hidden}
     >
       <span className="grid size-10 place-items-center rounded-full bg-ink/25 transition-colors duration-500 group-hover:bg-orange">
         <span className="w-5 text-bone">

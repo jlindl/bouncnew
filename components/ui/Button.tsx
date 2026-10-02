@@ -115,6 +115,7 @@ export function Button({
       <a
         href={href}
         className={cls}
+        onClick={onClick}
         onPointerEnter={setOrigin}
         onPointerLeave={setOrigin}
         target={newTab ? "_blank" : undefined}
@@ -126,7 +127,7 @@ export function Button({
     );
   } else if (href) {
     el = (
-      <TransitionLink href={href} className={cls} onPointerEnter={setOrigin} onPointerLeave={setOrigin} aria-label={ariaLabel}>
+      <TransitionLink href={href} className={cls} onClick={onClick} onPointerEnter={setOrigin} onPointerLeave={setOrigin} aria-label={ariaLabel}>
         {inner}
       </TransitionLink>
     );

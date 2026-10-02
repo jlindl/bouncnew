@@ -10,6 +10,7 @@ import { Mark, Wordmark } from "@/components/ui/Logo";
 import { TransitionLink } from "@/components/ui/TransitionLink";
 import { Button } from "@/components/ui/Button";
 import { Menu } from "@/components/layout/Menu";
+import { BagButton } from "@/components/shop/BagButton";
 
 export function Header() {
   const pathname = usePathname();
@@ -97,7 +98,7 @@ export function Header() {
             </span>
           </TransitionLink>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
             {NAV.map((item) => {
               const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
               return (
@@ -133,12 +134,13 @@ export function Header() {
             <Button href={bookingUrl("header_mobile")} external icon="none" className="!h-11 !pl-5 !pr-5 !text-[0.85rem]" wrapperClassName="inline-block sm:hidden" magnetic={false}>
               Book
             </Button>
+            <BagButton />
             <button
               type="button"
               onClick={() => setOpenAt(open ? null : pathname)}
               aria-expanded={open}
               aria-controls="site-menu"
-              className="group relative grid size-11 place-items-center rounded-full ring-1 ring-inset ring-line-2 transition-colors hover:bg-bone hover:text-ink lg:hidden"
+              className="group relative grid size-11 place-items-center rounded-full ring-1 ring-inset ring-line-2 transition-colors hover:bg-bone hover:text-ink xl:hidden"
             >
               <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
               <span aria-hidden className="relative block h-3 w-5">

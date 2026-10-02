@@ -17,6 +17,7 @@ export function usePageTransition() {
 function labelFor(path: string) {
   if (ROUTE_LABELS[path]) return ROUTE_LABELS[path];
   if (path.startsWith("/journal/")) return "Journal";
+  if (path.startsWith("/shop/")) return "Shop";
   return "BOUNC";
 }
 

@@ -18,7 +18,8 @@ const PREVIEW: Record<string, ImgKey> = {
   "/cafe": "latteArt",
   "/community": "stillHighfive",
   "/journal": "racketBall",
-  "/contact": "stillTube",
+  "/shop": "stillTube",
+  "/contact": "racketTap",
 };
 
 export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) {
